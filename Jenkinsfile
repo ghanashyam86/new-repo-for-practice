@@ -25,5 +25,15 @@ pipeline{
                     sh "scp -i /mnt/shyam_mumbai_key.pem /mnt/git-repo/hello-world/webapp/target/webapp.war ec2-user@10.10.1.117:/mnt"
                 }
             }
+            stage ('copy-war-in-compose-dir-slave-a) {
+                   agent {
+                       node {
+                           label 'dev1'
+                       }
+                   }
+                   steps {
+                      
+                           sh "cp /mnt/webapp.war /mnt/compose"
+                   }
        }
 }
