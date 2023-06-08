@@ -37,7 +37,7 @@ pipeline{
                    }
                }
             
-            stage ('deploy-on-slave-dev-a') {
+            stage ('deploy-on-slave2-dev-a') {
                 agent {
                     node {
                         label 'dev1'
