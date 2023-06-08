@@ -19,5 +19,11 @@ pipeline{
                   }
                 }     
             }
+            stage ('copy-war-file-on-slave-dev-A') {
+                steps {
+                    sh "chmod -R 777 /mnt/git-repo/hello-world/webapp/target/webapp.war
+                    sh "scp -i /mnt/shyam_mumbai_key.pem /mnt/git-repo/hello-world/webapp/target/webapp.war ec2-user@10.10.1.117:/mnt"
+                }
+            }
        }
 }
