@@ -8,6 +8,7 @@ pipeline{
         stages {
             stage ('clone-repo') {
                 steps {
+                       sh "rm -rf hello-world*"
                       sh "git clone https://github.com/ghanashyam86/hello-world.git"
                       }
                    }
