@@ -36,5 +36,17 @@ pipeline{
                            sh "cp /mnt/webapp.war /mnt/compose"
                    }
                }
+            
+            stage ('deploy-on-dev-a') {
+                agent {
+                    node {
+                        label 'dev1'
+                        customWorkspace '/mnt/compose'
+                    }
+                }
+                steps {
+                    sh "docker-compose up"
+                }
+            }
        }
 }
