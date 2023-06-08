@@ -35,6 +35,6 @@ pipeline{
                       
                            sh "cp /mnt/webapp.war /mnt/compose"
                    }
-                }
+               }
        }
 }
